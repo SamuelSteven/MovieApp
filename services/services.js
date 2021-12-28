@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 const apiUrl = 'https://api.themoviedb.org/3';
-const apiKey = 'api_key=3011dd8859bc75c52b9d0eac6367808f';
-
+const apiKey = 'api_key=8c247ea0b4b56ed2ff7d41c9a833aa77';
 // Get Popular Movies
 export const getPopularMovies = async () => {
   const resp = await axios.get(`${apiUrl}/movie/popular?${apiKey}`);
@@ -36,4 +35,3 @@ export const getDocumentaryMovies = async () => {
   );
   return resp.data.results;
 };
-
