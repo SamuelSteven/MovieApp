@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, StyleSheet, Image, Text} from 'react-native';
+import { TouchableOpacity, StyleSheet, Image, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
 const placeholderImage = require('../assets/images/placeholder.png');
@@ -7,19 +7,20 @@ const placeholderImage = require('../assets/images/placeholder.png');
 const propTypes = {
   item: PropTypes.object,
 };
+
 class Card extends React.PureComponent {
   render() {
-    const {navigation, item} = this.props;
+    const { navigation, item } = this.props;
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('Detail')}
+        onPress={() => navigation.navigate('Detail', { movieDetail: item })}
         style={styles.container}>
         <Image
           resizeMode="cover"
           style={styles.image}
           source={
             item.poster_path
-              ? {uri: 'https://image.tmdb.org/t/p/w500' + item.poster_path}
+              ? { uri: 'https://image.tmdb.org/t/p/w500' + item.poster_path }
               : placeholderImage
           }
         />
