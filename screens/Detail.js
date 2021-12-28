@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, ScrollView, Image, Dimensions, ActivityIndicator, Text, View } from 'react-native';
 import { getMovie } from '../services/services'
+import StarRating from 'react-native-star-rating';
 
 const placeholderImage = require('../assets/images/placeholder.png');
 const height = Dimensions.get('screen').height;
@@ -40,6 +41,14 @@ const Detail = ({ route, navigation }) => {
               })}
             </View>
           )}
+          <StarRating
+            disabled={true}
+            maxStars={5}
+            rating={movieDetail.vote_average / 2}
+            fullStarColor={'gold'}
+            maxStars={5}
+            starSize={30}
+          />
         </View>
       </ScrollView>}
       {!loaded && <ActivityIndicator size="large" />}
@@ -66,6 +75,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'center',
     marginTop: 20,
+    marginBottom: 20,
   },
   genre: {
     marginRight: 10,

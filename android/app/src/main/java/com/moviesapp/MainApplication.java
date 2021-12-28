@@ -11,6 +11,7 @@ import com.facebook.react.bridge.JSIModulePackage;
 import com.facebook.soloader.SoLoader;
 import com.swmansion.reanimated.ReanimatedJSIModulePackage;
 import java.lang.reflect.InvocationTargetException;
+import com.oblador.vectoricons.VectorIconsPackage;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
