@@ -4,7 +4,7 @@ import { getMovie } from '../services/services'
 import StarRating from 'react-native-star-rating';
 import dateFormat from 'dateformat';
 import PlayButton from '../components/PlayButton';
-import VideoPlayer from 'react-native-video-controls';
+import Video from '../components/Video';
 
 const placeholderImage = require('../assets/images/placeholder.png');
 const height = Dimensions.get('screen').height;
@@ -68,15 +68,12 @@ const Detail = ({ route, navigation }) => {
               </Text>
             </View>
           </ScrollView>
-          <Modal animationType="slide" visible={modalVisible}>
+          <Modal
+            supportedOrientations={['portrait', 'landscape']}
+            animationType="slide"
+            visible={modalVisible}>
             <View style={styles.videoModal}>
-              <VideoPlayer
-                onBack={() => {
-                  videoShown();
-                }}
-                navigator={navigation}
-                source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
-              />
+              <Video onClose={videoShown} />
             </View>
           </Modal>
         </View>
